@@ -1,0 +1,40 @@
+.input-box{
+    border-radius: 6px;
+    padding: 15px;
+    margin: 10px 0;
+    width: 60%;
+    border: 1px solid #999;
+    outline: none;
+    background-color: #fff;
+}
+.authenticate-btn{
+    margin-top: 20px;
+    padding: 10px 10px;
+    width: 60%;
+    background-color: black;
+    color: #fff;
+    border-radius: 4px;
+}
+.authenticate-btn:hover{
+    background-color: #fff;
+    color: black;
+    border: black 3px solid;
+
+}
+
+.loginArea{
+    background-color: #fff;
+
+}
+.loginInfo{
+    padding-top: 80px;
+    padding-left: 40px;
+}
+.reset{
+    background-color: white;
+    color: rgb(126, 126, 250);
+    margin-top: 0;
+    padding: 0;
+    border: none;
+ 
+}

@@ -5,7 +5,7 @@ import Banner from './Banner/Banner';
 const Explore = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('https://murmuring-beyond-96223.herokuapp.com/services')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
