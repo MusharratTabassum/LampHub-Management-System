@@ -1,3 +1,6 @@
-.banner{
-    
+.bannerBg{
+    background-image: url('./images/slider-1.jpg');
+}
+.banner-text{
+    margin-top: 15%;
 }

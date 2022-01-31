@@ -1,8 +1,7 @@
 import initializeAuthentication from "../firebase/firebase.init";
 import { useEffect, useState } from "react";
 import {
-    getAuth, signInWithPopup,
-    GoogleAuthProvider, signOut,
+    getAuth, signOut, signInWithPopup, GoogleAuthProvider,
     onAuthStateChanged, createUserWithEmailAndPassword,
     sendPasswordResetEmail, sendEmailVerification,
     updateProfile, signInWithEmailAndPassword
@@ -12,6 +11,7 @@ import {
 initializeAuthentication();
 
 const useFirebase = () => {
+
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const auth = getAuth();
@@ -26,7 +26,6 @@ const useFirebase = () => {
             .then(() => { })
             .finally(() => setIsLoading(false));
     }
-
     //Observe user state change
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -43,10 +42,15 @@ const useFirebase = () => {
     }, []);
 
 
+
+
+    //Email/Password Authentication
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
 
     const handleUserRegistration = (e) => {
         e.preventDefault();
@@ -78,6 +82,7 @@ const useFirebase = () => {
                 setError(error.message);
             })
     }
+
     const verifyEmail = () => {
         sendEmailVerification(auth.currentUser)
             .then(result => {
@@ -105,8 +110,6 @@ const useFirebase = () => {
     const handlePasswordChange = e => {
         setPassword(e.target.value);
     }
-
-
     //Login withemail and password
 
     const handleUserLogin = (e) => {

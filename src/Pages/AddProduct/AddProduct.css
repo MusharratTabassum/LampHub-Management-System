@@ -1,0 +1,23 @@
+.inputField{
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 40%;
+    border: 1px solid #999;
+    outline: none;
+    background-color: #fff;
+}
+.add-btn{
+    margin-top: 20px;
+    padding: 10px 10px;
+    width:40%;
+    background-color: black;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.add-btn:hover{
+    background-color: #fff;
+    color: black;
+    border: black 3px solid;
+}

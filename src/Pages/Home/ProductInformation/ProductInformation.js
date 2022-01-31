@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import useAuth from '../../../Hooks/useAuth'
+import './ProductInformation.css'
+
 
 
 const ProductInformation = () => {
+
     const { productId } = useParams();
     const [productInformation, setProductInformation] = useState([]);
 
-
+    const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
 
     useEffect(() => {
-        fetch("https://murmuring-beyond-96223.herokuapp.com/services")
+        fetch("http://localhost:5000/products")
             .then((res) => res.json())
             .then((data) => setProductInformation(data));
     }, []);
@@ -20,10 +24,10 @@ const ProductInformation = () => {
     const chosenProduct = productInformation.find(item => item._id === productId);
 
     const onSubmit = data => {
-        axios.post('https://murmuring-beyond-96223.herokuapp.com/bookings', data)
+        axios.post('http://localhost:5000/bookings', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('Thanks! We will contact with you soon.');
+                    alert('Thanks!The product is booked.We will contact with you shortly.');
                     console.log(res);
                     reset();
 
@@ -32,36 +36,37 @@ const ProductInformation = () => {
     }
     return (
         <div>
-            <div className='container '>
+            <div className='container mt-5'>
                 <div className='serviceDetail '>
                     <div className='row'>
-                        <div className="col-12 col-lg-6" data-aos="flip-left" >
-                            <img className='img-fluid img-size  mb-4' src={chosenProduct?.image} alt="" />
+                        <div className="col-12 col-lg-6" >
+                            <img className='img-fluid mb-4' style={{ height: "600px" }} src={chosenProduct?.image} alt="" />
                         </div >
-                        <div className="col-12 col-lg-6 notice text-start p-4" data-aos="flip-right">
+                        <div className="col-12 col-lg-6 text-start p-4" >
                             <h2 className=" mb-3">{chosenProduct?.name}</h2>
-                            <h6 className='mt-4 white mb-2'>Duration : {chosenProduct?.price}</h6>
+                            <h6 className='mt-4 mb-2'>Price : ${chosenProduct?.price}</h6>
+                            <h6 className='mt-2 mb-2'>Shipping Cost : {chosenProduct?.shipping}</h6>
+                            <form onSubmit={handleSubmit(onSubmit)}>
 
-                        </div>
+                                <input type="text" {...register("user_name", { required: true, maxLength: 20 })} className='input-boxes' placeholder="User Name" defaultValue={user.displayName} />
+
+                                <input type="email" {...register("email", { required: true })} className='input-boxes' placeholder="Email" defaultValue={user.email} />
+
+                                <input type="text" {...register("status", { required: true })} className='input-boxes' defaultValue="pending" />
+
+                                <input type="number" {...register("phone", { required: true })} className='input-boxes' placeholder="your phone number" />
+
+                                <input type="text" {...register("address", { required: true })} className='input-boxes' placeholder="Address" />
+                                <input className='booking-btn' type="submit" value="Submit" />
+
+                            </form></div>
                     </div>
                 </div>
-                <div className='booking-detail'>
-                    <h2 className="mb-3">Book The Tour</h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <input type="text"  {...register("name", { required: true })} placeholder="product name" defaultValue={chosenProduct?.name} />
-                        <input type="text" {...register("user_name", { required: true, maxLength: 20 })} placeholder="User Name" defaultValue={user.displayName} />
-                        <input type="email" {...register("email", { required: true })} placeholder="Email" defaultValue={user.email} />
-                        <input type="text" {...register("status", { required: true })} defaultValue="pending" />
-                        <input type="number" {...register("phone", { required: true })} placeholder="01*******" />
-                        <input type="text" {...register("address", { required: true })} placeholder="Address" />
-                        <input type="date" {...register("Date")} placeholder="Date" />
-                        <input className='booking-btn' type="submit" value="Book" />
-                    </form></div>
-
             </div>
+
+
         </div>
 
-        </div >
     );
 };
 

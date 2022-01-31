@@ -11,8 +11,8 @@ const Products = () => {
     return (
         <div>
             <div id="tours">
-                <h1 className="text-center fw-bold my-5 py-3 service-title">Now Available Products on Online
-                </h1>
+                <h2 className="text-center fw-bold my-5 py-3 service-title">Now Available Products on Online
+                </h2>
                 <div className="container" data-aos="zoom-in-up" data-aos-duration="1000">
                     <div className="row row-cols-1 row-cols-md-3 g-4 mb-5">
                         {

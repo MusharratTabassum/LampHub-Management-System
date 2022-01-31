@@ -1,41 +1,24 @@
-.input-box{
+.input-boxes{
     border-radius: 6px;
-    padding: 15px;
+    padding: 12px;
     margin: 10px 0;
-    width: 60%;
+    width: 80%;
     border: 1px solid #999;
     outline: none;
     background-color: #fff;
 }
-.authenticate-btn{
+.booking-btn{
     margin-top: 20px;
     padding: 10px 10px;
-    width: 60%;
+    width: 80%;
     background-color: black;
     color: #fff;
     border-radius: 4px;
     font-weight: 600;
 }
-.authenticate-btn:hover{
+.booking-btn:hover{
     background-color: #fff;
     color: black;
     border: black 3px solid;
 
-}
-
-.loginArea{
-    background-color: #fff;
-
-}
-.loginInfo{
-    padding-top: 80px;
-    padding-left: 40px;
-}
-.reset{
-    background-color: white;
-    color: rgb(126, 126, 250);
-    margin-top: 0;
-    padding: 0;
-    border: none;
- 
 }
