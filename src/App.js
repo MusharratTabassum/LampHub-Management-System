@@ -11,13 +11,20 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Navigation from './Pages/Shared/Navigation/Navigation';
 import ProductInformation from './Pages/Home/ProductInformation/ProductInformation'
 import AddProduct from './Pages/AddProduct/AddProduct';
+import AllBookings from './Pages/AllBookings/AllBookings';
+import ManageBookings from './Pages/ManageBookings/ManageBookings';
+import UpdatingStatus from './Pages/UpdatingStatus/UpdatingStatus';
+import ManageProducts from './Pages/ManageProducts/ManageProducts';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
+
           <Navigation></Navigation>
+
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -40,10 +47,24 @@ function App() {
             <PrivateRoute path="/addproduct">
               <AddProduct></AddProduct>
             </PrivateRoute>
-
+            <PrivateRoute path="/allbookings">
+              <AllBookings></AllBookings>
+            </PrivateRoute>
+            <PrivateRoute path="/managebookings">
+              <ManageBookings></ManageBookings>
+            </PrivateRoute>
+            <PrivateRoute path="/manageproducts">
+              <ManageProducts></ManageProducts>
+            </PrivateRoute>
+            <Route path="/bookings/update/:id">
+              <UpdatingStatus></UpdatingStatus>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
-          <Footer></Footer>
 
+          <Footer></Footer>
 
         </BrowserRouter>
 

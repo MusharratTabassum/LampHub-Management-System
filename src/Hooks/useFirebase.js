@@ -4,7 +4,7 @@ import {
     getAuth, signOut, signInWithPopup, GoogleAuthProvider,
     onAuthStateChanged, createUserWithEmailAndPassword,
     sendPasswordResetEmail, sendEmailVerification,
-    updateProfile, signInWithEmailAndPassword
+    updateProfile, signInWithEmailAndPassword, getIdToken
 } from "firebase/auth";
 
 
@@ -13,6 +13,8 @@ initializeAuthentication();
 const useFirebase = () => {
 
     const [user, setUser] = useState({});
+    const [admin, setAdmin] = useState(false);
+
     const [isLoading, setIsLoading] = useState(true);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -30,7 +32,8 @@ const useFirebase = () => {
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user)
+
+                setUser(user);
             } else {
                 // User is signed out
                 setUser({})

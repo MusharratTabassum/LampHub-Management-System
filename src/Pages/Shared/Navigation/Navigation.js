@@ -11,7 +11,7 @@ const Navigation = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg='light pt-3 pb-3' variant="light">
                 <Container>
-                    <Navbar.Brand className='header-logo' as={Link} to='/'>LampHub</Navbar.Brand>
+                    <Navbar.Brand className='header-logo' as={Link} to='/'>LampsHub</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
@@ -22,10 +22,10 @@ const Navigation = () => {
                                     <Nav.Link as={Link} to="/">Hello! {user.displayName}</Nav.Link> : ''
                                 }
                             </Nav.Link>
-                            <Nav.Link className='header-link' >
+                            <Nav.Link className='header-text' >
                                 {user?.email ?
                                     <Button className='p-0 logout-btn ' onClick={logOut} variant="light">Logout</Button> :
-                                    <Nav.Link className='header-link' as={Link} to="/login">Login</Nav.Link>
+                                    <Nav.Link className='header-text' as={Link} to="/login">Login</Nav.Link>
                                 }
                             </Nav.Link>
                         </Nav>

@@ -16,7 +16,7 @@ const ProductInformation = () => {
     const { register, handleSubmit, reset } = useForm();
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://secure-crag-28279.herokuapp.com/products")
             .then((res) => res.json())
             .then((data) => setProductInformation(data));
     }, []);
@@ -24,7 +24,7 @@ const ProductInformation = () => {
     const chosenProduct = productInformation.find(item => item._id === productId);
 
     const onSubmit = data => {
-        axios.post('http://localhost:5000/bookings', data)
+        axios.post('https://secure-crag-28279.herokuapp.com/bookings', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Thanks!The product is booked.We will contact with you shortly.');

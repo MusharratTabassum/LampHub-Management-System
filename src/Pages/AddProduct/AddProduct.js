@@ -21,8 +21,9 @@ const AddProduct = () => {
         <div>
             <div className="mt-5">
                 <h2>Please Add a Product</h2>
+
                 <form onSubmit={handleSubmit(onAddSubmit)}>
-                    <input {...register("name", { required: true, maxLength: 20 })} placeholder="product name" className='inputField' />
+                    <input {...register("name", { required: true, maxLength: 200 })} placeholder="product name" className='inputField' />
                     <br />
                     <input type="number" {...register("price")} placeholder="price" className='inputField' />
                     <br />
@@ -33,8 +34,9 @@ const AddProduct = () => {
                     <input className='add-btn' type="submit" />
                 </form>
             </div>
-
         </div>
+
+
     );
 };
 
