@@ -1,7 +1,16 @@
-.header-background{
-    background-color: #310380;
-}
-.header-background Nav.Link{
-    color: white;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+
+.header-text{
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
     
+}
+.header-logo{
+    font-size: 30px;
+    font-weight: 800;
+    color: black;
+    cursor: pointer;
+
 }
