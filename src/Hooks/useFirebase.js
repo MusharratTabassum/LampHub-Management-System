@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import {
     getAuth, signOut, signInWithPopup, GoogleAuthProvider,
     onAuthStateChanged, createUserWithEmailAndPassword,
-    sendPasswordResetEmail, sendEmailVerification,
-    updateProfile, signInWithEmailAndPassword, getIdToken
+    sendPasswordResetEmail,
+    updateProfile, signInWithEmailAndPassword,
 } from "firebase/auth";
 
 
@@ -56,12 +56,8 @@ const useFirebase = () => {
 
     const handleUserRegistration = (e) => {
         e.preventDefault();
-        if (password.length < 6) {
-            setError("password should be more than 6 characters");
-            return;
-        }
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('password must contain 2 upper case');
+        if (password.length < 5) {
+            setError("password should be more than 5 characters");
             return;
         }
         else {
@@ -75,7 +71,7 @@ const useFirebase = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
-                verifyEmail();
+
                 setUserName();
 
                 // ...
@@ -85,13 +81,7 @@ const useFirebase = () => {
             })
     }
 
-    const verifyEmail = () => {
-        sendEmailVerification(auth.currentUser)
-            .then(result => {
 
-            })
-        alert('An email has been sent.Check your email to verify.')
-    }
     const handleResetPassword = () => {
         sendPasswordResetEmail(auth, email)
             .then(() => {

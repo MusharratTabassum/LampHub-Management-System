@@ -7,8 +7,6 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Registration from './Pages/Login/Registration/Registration';
-import Footer from './Pages/Shared/Footer/Footer';
-import Navigation from './Pages/Shared/Navigation/Navigation';
 import ProductInformation from './Pages/Home/ProductInformation/ProductInformation'
 import AddProduct from './Pages/AddProduct/AddProduct';
 import AllBookings from './Pages/AllBookings/AllBookings';
@@ -26,9 +24,6 @@ function App() {
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-
-
-
           <Switch>
             <Route exact path="/">
               <Home></Home>

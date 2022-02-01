@@ -22,19 +22,25 @@ const DashBoard = () => {
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Nav className="justify-content-end flex-grow-1 pe-3">
-
                                 <Nav.Link as={Link} className='dashboard-link' to="/home">Home</Nav.Link>
-                                <Nav.Link as={Link} className='dashboard-link' to="/managebookings">Manage Orders</Nav.Link>
-                                <Nav.Link as={Link} className='dashboard-link' to="/addproduct">Add Product</Nav.Link>
-                                <Nav.Link as={Link} className='dashboard-link' to="/allbookings">All Orders</Nav.Link>
-                                <Nav.Link as={Link} className='dashboard-link' to="/myorders">My Orders</Nav.Link>
-                                <Nav.Link as={Link} className='dashboard-link' to="/manageproducts">Manage Product</Nav.Link>
-                                <Nav.Link as={Link} className='dashboard-link' to="/payment">Payment</Nav.Link>
                                 {
-                                    user?.email &&
-                                    <Nav.Link as={Link} className='dashboard-link' to="/addreview">Review Us</Nav.Link>
+                                    user?.email === "admin@admin.com" ?
+                                        < Nav >
+                                            <Nav.Link as={Link} className='dashboard-link' to="/managebookings">Manage Orders</Nav.Link>
+                                            <Nav.Link as={Link} className='dashboard-link' to="/addproduct">Add Product</Nav.Link>
+                                            <Nav.Link as={Link} className='dashboard-link' to="/allbookings">All Orders</Nav.Link>
+                                            <Nav.Link as={Link} className='dashboard-link' to="/manageproducts">Manage Product</Nav.Link>
+                                        </Nav> :
+                                        <Nav>
+                                            <Nav.Link as={Link} className='dashboard-link' to="/myorders">My Orders</Nav.Link>
+
+                                            <Nav.Link as={Link} className='dashboard-link' to="/payment">Payment</Nav.Link>
+                                            <Nav.Link as={Link} className='dashboard-link' to="/addreview">Review Us</Nav.Link>
+                                        </Nav>
 
                                 }
+
+
                                 <Nav.Link className='header-text' style={{ color: "blue" }} >
                                     {user?.email &&
                                         <Button className='p-0 logout-btn ' onClick={logOut} variant="light">Logout</Button>
@@ -49,7 +55,7 @@ const DashBoard = () => {
             </Navbar>
 
 
-        </div>
+        </div >
     );
 };
 

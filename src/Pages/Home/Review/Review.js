@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import img from './qoute.png'
 
 const Review = ({ review }) => {
