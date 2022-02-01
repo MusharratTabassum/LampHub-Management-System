@@ -1,5 +1,5 @@
 
-# LampHUb
+# LampHub
 
 Overview : LampHub is a full stack niche website with dynamic functionalities and responsive design.Users of two roles can interact with the system by using the web frontend.As data source, NoSQL database is used (MongoDB).
 It allows user to create an account, buy items and delete them.Email/password firebase authentication has been added.The backend services are deployed on Heroku.The frontend is deployed on firebase.All the services and UI are done using Node Express and React js.
