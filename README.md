@@ -5,7 +5,7 @@ Overview : LampHub is a full stack niche website with dynamic functionalities an
 It allows user to create an account, buy items and delete them.Email/password firebase authentication has been added.The backend services are deployed on Heroku.The frontend is deployed on firebase.All the services and UI are done using Node Express and React js.
 
 ## Live Link
-[Travelicious BD Limited](https://travelicious-bd-limited.web.app/)
+[LampHub](https://lampshub.web.app/)
 
 
 ## API Reference
