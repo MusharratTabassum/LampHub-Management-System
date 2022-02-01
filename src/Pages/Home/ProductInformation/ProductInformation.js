@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import useAuth from '../../../Hooks/useAuth'
 import './ProductInformation.css'
+import DashBoard from '../../DashBoard/DashBoard';
+import Navigation from '../../Shared/Navigation/Navigation';
+import Footer from '../../Shared/Footer/Footer';
 
 
 
@@ -36,6 +39,7 @@ const ProductInformation = () => {
     }
     return (
         <div>
+            <Navigation></Navigation>
             <div className='container mt-5'>
                 <div className='serviceDetail '>
                     <div className='row'>
@@ -63,6 +67,7 @@ const ProductInformation = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
 
 
         </div>

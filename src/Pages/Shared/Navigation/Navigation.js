@@ -5,7 +5,7 @@ import useAuth from '../../../Hooks/useAuth';
 import './Navigation.css'
 
 const Navigation = () => {
-    const { user, logOut } = useAuth();
+    const { user } = useAuth();
 
     return (
         <div>
@@ -17,23 +17,27 @@ const Navigation = () => {
                         <Nav className="ms-auto">
                             <Nav.Link className='header-text' as={Link} to='/home'>Home</Nav.Link>
                             <Nav.Link className='header-text' as={Link} to='/explore'>Explore</Nav.Link>
-                            <Nav.Link className='header-link '>
-                                {user?.email ?
-                                    <Nav.Link as={Link} to="/">Hello! {user.displayName}</Nav.Link> : ''
-                                }
-                            </Nav.Link>
-                            <Nav.Link className='header-text' >
-                                {user?.email ?
-                                    <Button className='p-0 logout-btn ' onClick={logOut} variant="light">Logout</Button> :
-                                    <Nav.Link className='header-text' as={Link} to="/login">Login</Nav.Link>
-                                }
-                            </Nav.Link>
+
+                            {user?.email ?
+                                <Nav.Link className='header-text' as={Link} to='/dashboard'>Dashboard</Nav.Link> : ''
+                            }
+
+                            {!user?.email &&
+                                < Nav.Link className='header-text' as={Link} to="/login">Login</Nav.Link>
+                            }
+
+
+                            {user?.email ?
+                                <Nav.Link as={Link} to="/" style={{ color: "black", fontSize: "20px" }}>Hello! {user.displayName}</Nav.Link> : ''
+                            }
+
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
 
-        </div>
+        </div >
     );
 };
 

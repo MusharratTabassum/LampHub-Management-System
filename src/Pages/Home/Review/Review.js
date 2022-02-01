@@ -3,29 +3,26 @@ import { Link } from 'react-router-dom';
 import img from './qoute.png'
 
 const Review = ({ review }) => {
-    const { _id, title, short_description, image, price } = review;
+    const { user_name, review_us, ratings } = review;
 
     return (
         <div>
-            <div className='col'>
-                <div className="card shadow-lg p-3 ">
-                    <img src={image} className="card-img-top img-fluid" alt="..." />
-                    <div className="card-body text-start">
-                        <h5 className="card-title fw-bold">{title}</h5>
-                        <p className="card-text text-danger">{price}tk/Person</p>
-                        <p className="card-text">{short_description}</p>
-                    </div>
-                    <div class="card-footer ">
-                        <Link to={`/serviceDetail/${_id}`}>
-                            <button>Details</button>
-                        </Link>
+            <div className='col '>
+                <div className='d-flex justify-content-center py-3 align-items-center'>
+                    <div className="card shadow-lg" style={{ width: "18rem" }}>
+                        <ul className="list-group list-group-flush">
+                            <li className="list-group-item"><img src={img} className='d-flex justify-content-end align-items-center' style={{ height: "30px" }} alt="" /></li>
+                            <li className="list-group-item">{review_us}</li>
+                            <li className="list-group-item">{ratings}/5.0</li>
+                        </ul>
+                        <div className="card-footer" style={{ fontWeight: "700" }}>
+                            {user_name}
+                        </div>
                     </div>
                 </div>
 
+
             </div>
-
-
-
         </div>
     );
 };

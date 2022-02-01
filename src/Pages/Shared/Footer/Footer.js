@@ -20,24 +20,24 @@ const Footer = () => {
                         <ul>Return & Refunds</ul>
                         <ul>Online Store</ul>
                         <ul>Terms & Condition</ul>
-
                     </div>
+
                     <div className="col-lg-3 col-md-6">
                         <ul> <h4 style={{ fontWeight: '600' }}>ABOUT</h4></ul>
-                        <ul><Link style={{ textDecoration: 'none', color: 'black' }} to="/">Travelicious</Link></ul>
-                        <ul><Link style={{ textDecoration: 'none', color: 'black' }} to="/home">Tour prices</Link></ul>
+                        <ul><Link style={{ textDecoration: 'none', color: 'black' }} to="/">Lamphub</Link></ul>
+                        <ul><Link style={{ textDecoration: 'none', color: 'black' }} to="/home">products</Link></ul>
                         <ul><Link style={{ textDecoration: 'none', color: 'black' }} >Testimonials</Link></ul>
                         <ul><Link style={{ textDecoration: 'none', color: 'black' }} to='/contact'>Contact us</Link></ul>
-
                     </div>
                     <div className="col-lg-3 col-md-6">
                         <div>
                             <h4 style={{ fontWeight: '600' }}>STAY CONNECTED</h4>
-
                             <p className='mt-3'>Be the first who learns about our great promotions!</p>
                             <input className='p-2 mb-3' type="email" placeholder='Your Email Address' />
                         </div>
-                        <button >Subscribe</button>
+
+                        <button style={{ padding: "3px 7px", backgroundColor: "black", color: "white" }}>Subscribe</button>
+
                         <div className='mt-3'>
                             <FontAwesomeIcon style={{ fontSize: '30px', margin: '5px' }} icon={faFacebookF} />
                             <FontAwesomeIcon style={{ fontSize: '30px', margin: '5px' }} icon={faInstagram} />

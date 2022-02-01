@@ -1,54 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
+import Review from '../Review/Review';
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
 
 import "./Reviews.css";
-
-// import required modules
-import { EffectCoverflow, Pagination } from "swiper";
-import Review from '../Review/Review';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('https://murmuring-beyond-96223.herokuapp.com/services')
+        fetch('https://secure-crag-28279.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [])
 
     return (
         <div>
-            <>
-                <Swiper
-                    effect={"coverflow"}
-                    grabCursor={true}
-                    centeredSlides={true}
-                    slidesPerView={"auto"}
-                    coverflowEffect={{
-                        rotate: 50,
-                        stretch: 0,
-                        depth: 100,
-                        modifier: 1,
-                        slideShadows: true,
-                    }}
-                    pagination={true}
-                    modules={[EffectCoverflow, Pagination]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
+            <div id="tours">
+                <h2 className="text-center fw-bold my-5 py-3 service-title">What Our Client Say About Us
+                </h2>
+                <div className="container" data-aos="zoom-in-up" data-aos-duration="1000">
+                    <div className="row row-cols-1 row-cols-md-3 mb-5">
                         {
                             reviews.map(review => (<Review
                                 key={review.id}
                                 review={review}
                             ></Review>))
                         }
-                    </SwiperSlide>
-                </Swiper>
-            </>
+                    </div>
+                </div>
+            </div>
+
 
         </div >
     );

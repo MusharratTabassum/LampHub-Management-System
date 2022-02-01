@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import img from '../../Login/loginImg1.png'
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const Registration = () => {
     const { name, handleNameChange, handleEmailChange, handlePasswordChange, error, handleUserRegistration, handleResetPassword } = useAuth();
@@ -10,6 +12,7 @@ const Registration = () => {
 
     return (
         <div>
+            <Navigation></Navigation>
             <div className='container'>
                 <div className='row mt-5 loginArea'>
                     <div className='col-lg-5'>
@@ -41,6 +44,7 @@ const Registration = () => {
                 </div>
 
             </div>
+            <Footer></Footer>
 
         </div>
     );

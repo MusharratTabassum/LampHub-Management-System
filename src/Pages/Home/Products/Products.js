@@ -10,7 +10,7 @@ const Products = () => {
     }, [])
     return (
         <div>
-            <div id="tours">
+            <div className='mb-5'>
                 <h2 className="text-center fw-bold my-5 py-3 service-title">Now Available Products on Online
                 </h2>
                 <div className="container" data-aos="zoom-in-up" data-aos-duration="1000">

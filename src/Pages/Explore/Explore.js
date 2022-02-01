@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Home/Product/Product';
+import Footer from '../Shared/Footer/Footer';
+import Navigation from '../Shared/Navigation/Navigation';
 import Banner from './Banner/Banner';
 
 const Explore = () => {
@@ -11,6 +13,7 @@ const Explore = () => {
     }, [])
     return (
         <div>
+            <Navigation></Navigation>
             <Banner></Banner>
             <div id="tours">
                 <h1 className="text-center fw-bold my-5 py-3 service-title">Our Products
@@ -26,6 +29,7 @@ const Explore = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

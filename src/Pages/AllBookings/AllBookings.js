@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import DashBoard from '../DashBoard/DashBoard';
+import Footer from '../Shared/Footer/Footer';
 
 
 const AllBookings = () => {
@@ -12,11 +14,12 @@ const AllBookings = () => {
     }, [])
     return (
         <div>
+            <DashBoard></DashBoard>
             <div className="bookings container ">
 
                 {
                     <div className="table-responsive mt-3 mb-5">
-                        <h1 className="mt-5 mb-5 service-title">Total Booking : {bookings?.length}</h1>
+                        <h1 className="mt-5 mb-5 service-title">Total Order : {bookings?.length}</h1>
 
                         <Table responsive>
                             <thead>
@@ -42,6 +45,7 @@ const AllBookings = () => {
                     </div>
                 }
             </div>
+            <Footer></Footer>
         </div>
     );
 };

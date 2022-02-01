@@ -16,6 +16,10 @@ import ManageBookings from './Pages/ManageBookings/ManageBookings';
 import UpdatingStatus from './Pages/UpdatingStatus/UpdatingStatus';
 import ManageProducts from './Pages/ManageProducts/ManageProducts';
 import NotFound from './Pages/NotFound/NotFound';
+import DashBoard from './Pages/DashBoard/DashBoard';
+import Payment from './Pages/Payment/Payment';
+import MyOrders from './Pages/MyOrders/MyOrders';
+import AddReview from './Pages/AddReview/AddReview';
 
 function App() {
   return (
@@ -23,7 +27,7 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
 
-          <Navigation></Navigation>
+
 
           <Switch>
             <Route exact path="/">
@@ -47,8 +51,20 @@ function App() {
             <PrivateRoute path="/addproduct">
               <AddProduct></AddProduct>
             </PrivateRoute>
+            <PrivateRoute path="/addreview">
+              <AddReview></AddReview>
+            </PrivateRoute>
+            <PrivateRoute path="/payment">
+              <Payment></Payment>
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <DashBoard></DashBoard>
+            </PrivateRoute>
             <PrivateRoute path="/allbookings">
               <AllBookings></AllBookings>
+            </PrivateRoute>
+            <PrivateRoute path="/myorders">
+              <MyOrders></MyOrders>
             </PrivateRoute>
             <PrivateRoute path="/managebookings">
               <ManageBookings></ManageBookings>
@@ -64,7 +80,7 @@ function App() {
             </Route>
           </Switch>
 
-          <Footer></Footer>
+
 
         </BrowserRouter>
 

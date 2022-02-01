@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import DashBoard from '../DashBoard/DashBoard';
+import Footer from '../Shared/Footer/Footer';
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
@@ -14,7 +16,7 @@ const ManageProducts = () => {
     const handleDeleteProduct = id => {
         const proceed = window.confirm('Are you sure, you want to delete your Product?');
         if (proceed) {
-            const url = `https://secure-crag-28279.herokuapp.com/${id}`;
+            const url = `https://secure-crag-28279.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -34,6 +36,7 @@ const ManageProducts = () => {
 
     return (
         <div>
+            <DashBoard></DashBoard>
             <div className="bookings container ">
 
                 {
@@ -70,6 +73,7 @@ const ManageProducts = () => {
                 }
 
             </div>
+            <Footer></Footer>
 
         </div>
     );

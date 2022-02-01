@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+import { Table } from 'react-bootstrap';
 import DashBoard from '../DashBoard/DashBoard';
 import Footer from '../Shared/Footer/Footer';
 
-const ManageBookings = () => {
+
+const MyOrders = () => {
     const [bookings, setBookings] = useState([]);
+    const { user } = useAuth();
 
     useEffect(() => {
         fetch('https://secure-crag-28279.herokuapp.com/bookings')
             .then(res => res.json())
             .then(data => setBookings(data));
     }, [])
+
+
+    //filter
+    const myBookings = bookings.filter(booking => booking.email == user.email);
+
+
+    console.log(myBookings);
+
     const handleDeleteBooking = id => {
         const proceed = window.confirm('Are you sure, you want to delete your booking?');
         if (proceed) {
@@ -29,57 +39,53 @@ const ManageBookings = () => {
                 });
         }
         else {
-            alert("The booking is not removed.")
+            alert("not working")
         }
     }
+
 
     return (
         <div>
             <DashBoard></DashBoard>
-            <div className="bookings container ">
+            <div className="bookings container">
+
+                <h1 className='mb-1 mt-4'>My Total Booking : {myBookings?.length}</h1>
 
                 {
-                    <div className="table-responsive mt-3 mb-5">
-                        <h1 className="mt-5 mb-5 service-title">Total Order : {bookings?.length}</h1>
+                    <div className="table-responsive mt-5 mb-5">
 
                         <Table responsive>
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>BookingID</th>
+
                                     <th>Email</th>
                                     <th>Status</th>
-                                    <th><th>Delete/Update</th></th>
+                                    <th>Delete/Update</th>
                                 </tr>
                             </thead>
-                            {bookings?.map((booking, index) => (
+                            {myBookings?.map((booking, index) => (
                                 <tbody key={booking._id}>
                                     <tr>
                                         <td>{index + 1}</td>
                                         <td>{booking._id}</td>
                                         <td>{booking.email}</td>
-                                        <td>{booking.status}</td>
-                                        <Button
-                                            onClick={() => handleDeleteBooking(booking._id)}
-                                            style={{ backgroundColor: 'black', color: 'white' }}
-                                        >
-                                            Delete
-                                        </Button>
-                                        <Link to={`/bookings/update/${booking._id}`}><button className='update-btn' style={{ backgroundColor: 'black', color: 'white', padding: "8px" }}>Update</button></Link>
 
+                                        <td>{booking.status}</td>
+                                        <button style={{ backgroundColor: "black", color: "white", padding: "6px" }} onClick={() => handleDeleteBooking(booking._id)}>Cancel</button>
                                     </tr>
                                 </tbody>
                             ))}
                         </Table>
                     </div>
-
                 }
 
             </div>
             <Footer></Footer>
-
         </div>
+
     );
 };
 
-export default ManageBookings;
+export default MyOrders;

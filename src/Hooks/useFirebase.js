@@ -13,7 +13,6 @@ initializeAuthentication();
 const useFirebase = () => {
 
     const [user, setUser] = useState({});
-    const [admin, setAdmin] = useState(false);
 
     const [isLoading, setIsLoading] = useState(true);
     const auth = getAuth();
@@ -131,16 +130,20 @@ const useFirebase = () => {
         }
     }
 
-    const loginProcess = (email, password) => {
+    const loginProcess = (email, password, location, history) => {
+        setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
                 console.log(user);
                 setError('');
             })
             .catch(error => {
                 setError(error.message);
             })
+            .finally(() => setIsLoading(false));
     }
 
 
@@ -164,7 +167,7 @@ const useFirebase = () => {
         handleNameChange,
         error,
         handleResetPassword,
-        handleUserLogin
+        handleUserLogin, loginProcess, email, password
 
     }
 
